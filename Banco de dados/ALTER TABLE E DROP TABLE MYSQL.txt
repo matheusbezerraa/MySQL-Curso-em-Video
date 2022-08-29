@@ -1,0 +1,41 @@
+MySQL banco de dados
+
+*para adcionar coluna*************************************************************************** 
+
+desc pessoas; (isso é para mostrar na tela a coluna de dados)
+
+alter table pessoas
+add column profissao varchar(10);
+
+*para apagar coluna*****************************************************************************
+
+alter table pessoas
+drop column profissao;
+
+*para adicionar em um lugar especifico**********para adicionar em primeiro**********************
+
+alter table pessoas                             alter table pessoas
+add column profissao varchar(10) after nome;    add column profissao varchar(10) fist;
+
+*para modificar o tipo da coluna de dados*******************************************************
+
+alter table pessoas
+modify column profissao varchar(20);
+
+*para renomear a coluna*************************************************************************
+
+alter table pessoas
+change column profissao codigo varchar(20);
+
+*para renomear a tabela inteira******************************************************************
+
+alter table
+rename to humanos;
+
+*para apagar a tabela*****************************************************************************
+
+drop table cursos;
+
+
+
+
