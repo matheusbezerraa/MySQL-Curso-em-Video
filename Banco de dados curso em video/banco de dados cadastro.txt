@@ -1,0 +1,76 @@
+create database cadastro
+default character set utf8 
+default collate utf8_general_ci;
+
+use cadastro;
+
+create table pessoas(
+id int not null auto_increment,
+nome varchar(30) not null,
+nascimento date,
+sexo enum('M', 'F'),
+peso decimal (5,2),
+altura decimal(3,2),
+nacionalidade varchar(20) default 'Brasil', 
+primary key (id)
+)default charset = utf8;
+
+insert into pessoas
+(nome, nascimento, sexo, peso, altura, nacionalidade)
+values
+('Maria','1984-01-02', 'F', '60.5', '1.63', 'Brasil');
+
+select * from pessoas;
+
+desc pessoas;
+
+alter table pessoas
+add column profissao varchar(15) after nome;
+
+alter table pessoas
+modify profissao varchar(20);
+
+alter table pessoas
+change profissao prof varchar(20);
+
+alter table pessoas
+rename to gafanhotos;
+
+desc gafanhotos;
+
+create table if not exists cursos(
+nome varchar(30) not null unique,
+descricao text,
+carga int unsigned,
+titaulas int,
+ano year default '2016'
+)default charset = utf8;
+
+alter table cursos
+add idcurso int first;
+
+alter table cursos
+add primary key (idcurso);
+
+select * from gafanhotos;
+select * from cursos;
+
+desc cursos;
+desc gafanhotos;
+
+insert into cursos values 
+('1','HTML5','CURSO EM VIDEO','40','15','2014');
+
+insert into cursos values
+('2','WORD','PACOTE OFFICE','45','10','2018');
+
+update cursos
+set nome = 'Excel'
+where idcurso = '1';
+
+update cursos 
+set descricao = 'Pacote office'
+where idcurso = '1'
+limit 1;
+
+drop database cadastro;
